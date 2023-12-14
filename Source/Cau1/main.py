@@ -47,8 +47,8 @@ def parse_public_key(public_key_pem):
         return 'Unknown public key type'
 
 # Paths to the PEM files
-private_key_path = 'priv.pem'
-public_key_path = 'pub.pem'
+private_key_path = '../priv.pem'
+public_key_path = '../pub.pem'
 
 # Read and parse the keys
 try:
