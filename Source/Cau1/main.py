@@ -1,3 +1,4 @@
+import os
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.backends import default_backend
@@ -47,8 +48,9 @@ def parse_public_key(public_key_pem):
         return 'Unknown public key type'
 
 # Paths to the PEM files
-private_key_path = '../priv.pem'
-public_key_path = '../pub.pem'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+private_key_path = os.path.join(script_dir, '..', 'priv.pem')
+public_key_path = os.path.join(script_dir, '..', 'pub.pem')
 
 # Read and parse the keys
 try:
