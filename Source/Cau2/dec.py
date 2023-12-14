@@ -36,4 +36,4 @@ plaintext_file = os.path.join(script_dir, 'plain_file.txt')
 cipher_file = os.path.join(script_dir, '..', 'cipher')
 
 # Decrypt the data
-decrypt(cipher_file, plaintext_file, private_key_path)
+decryption(cipher_file, plaintext_file, private_key_path)
