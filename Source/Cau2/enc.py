@@ -32,7 +32,7 @@ def encryption(plaintext_file, cipher_file, public_key_path):
 script_dir = os.path.dirname(os.path.abspath(__file__))
 public_key_path = os.path.join(script_dir, '..', 'pub.pem')
 plaintext_file = os.path.join(script_dir, '..', 'plain')
-cipher_file = os.path.join(script_dir, 'cipher_file.enc')
+cipher_file = os.path.join(script_dir, 'cipher_file_after_encryption.enc')
 
 # Encrypt the data
 encryption(plaintext_file, cipher_file, public_key_path)

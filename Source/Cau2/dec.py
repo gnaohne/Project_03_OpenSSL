@@ -32,7 +32,7 @@ def decryption(cipher_file, plain_file, private_key_path):
 # Paths to the PEM files and plaintext file and cipher file
 script_dir = os.path.dirname(os.path.abspath(__file__))
 private_key_path = os.path.join(script_dir, '..', 'priv.pem')
-plaintext_file = os.path.join(script_dir, 'plain_file.txt')
+plaintext_file = os.path.join(script_dir, 'plain_file_after_decryption.txt')
 cipher_file = os.path.join(script_dir, '..', 'cipher')
 
 # Decrypt the data
