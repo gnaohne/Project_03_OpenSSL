@@ -11,7 +11,7 @@ def encryption(plaintext_file, cipher_file, public_key_path):
             backend=default_backend()
         )
 
-    # Read the data from the input file
+    # Read the data from the plaintext file
     with open(plaintext_file, 'rb') as file:
         plain_text = file.read()
 
@@ -22,13 +22,13 @@ def encryption(plaintext_file, cipher_file, public_key_path):
         padding.PKCS1v15()
     )
 
-    # Write the encrypted data to the output file
+    # Write the encrypted data to the cipher file
     with open(cipher_file, 'wb') as file:
         file.write(cipher)
 
     print('Encryption done!')
 
-# Paths to the PEM files
+# Paths to the PEM files and plaintext file and cipher file
 script_dir = os.path.dirname(os.path.abspath(__file__))
 public_key_path = os.path.join(script_dir, '..', 'pub.pem')
 plaintext_file = os.path.join(script_dir, '..', 'plain')
