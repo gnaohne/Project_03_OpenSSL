@@ -3,7 +3,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 
-def decrypt(cipher_file, plain_file, private_key_path):
+def decryption(cipher_file, plain_file, private_key_path):
     # Read the private key content from the file
     with open(private_key_path, 'rb') as key_file:
         private_key = serialization.load_pem_private_key(
