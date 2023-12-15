@@ -1,6 +1,6 @@
+import os
 from Crypto.PublicKey import RSA
 from Crypto.Util.number import bytes_to_long, long_to_bytes
-import sys
 
 def read_private_key(file_name):
     with open(file_name, 'r') as file:
@@ -46,9 +46,15 @@ def write_signature(file_name, signature):
         file.write(signature)
 
 try:
-    private_key = read_private_key("../priv.pem")
-    message = read_message("../mess")
+    # Paths to the files
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    private_key_file = os.path.join(script_dir, '..', 'priv.pem')
+    message_file = os.path.join(script_dir, '..', 'mess')
+    signature_file = os.path.join(script_dir , 'signature')
+
+    private_key = read_private_key(private_key_file)
+    message = read_message(message_file)
     signature = sign_message_without_hash(private_key, message)
-    write_signature("signature", signature)
+    write_signature(signature_file, signature)
 except Exception as e:
     print(f"An error occurred: {e}")

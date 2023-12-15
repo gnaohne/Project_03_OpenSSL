@@ -1,3 +1,4 @@
+import os
 from Crypto.PublicKey import RSA
 from Crypto.Util.number import bytes_to_long, long_to_bytes
 
@@ -33,11 +34,16 @@ def verify_message_without_hash(public_key, message, signature):
     except ValueError:
         return False
 
-# Example usage
 try:
-    public_key = read_public_key("../pub.pem")
-    message = read_message("../mess")
-    signature = read_signature("../sign")
+    # Paths to the files
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    public_key_path = os.path.join(script_dir, '..', 'pub.pem')
+    message_file = os.path.join(script_dir, '..', 'mess')
+    signature_file = os.path.join(script_dir,'..' , 'sign')
+
+    public_key = read_public_key(public_key_path)
+    message = read_message(message_file)
+    signature = read_signature(signature_file)
     is_valid = verify_message_without_hash(public_key, message, signature)
     print("Signature valid." if is_valid else "Signature invalid.")
 except Exception as e:
